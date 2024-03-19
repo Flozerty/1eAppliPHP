@@ -22,11 +22,11 @@ session_start();
       <nav>
         <ul class="navbar-nav container navbar mt-2 d-flex flex-column gap-1 flex-md-row justify-content-center">
 
-          <li id="ajouter" class="nav-item">
+          <li id="ajouter" class="nav-item w-auto">
             <a class="btn btn-primary"> Ajouter produit </a>
           </li>
 
-          <li id="panier" class="nav-item">
+          <li id="panier" class="nav-item w-auto">
 
             <a href="recap.php" class="btn btn-light text-primary position-relative">
               Panier
@@ -63,15 +63,15 @@ session_start();
 
         <div class="mb-3">
           <label for="price" class="form-label">
-            Prix du produit :
-            <input type="number" id="price" step="any" name="price" class="ms-3 form-control">
+            Prix du produit en € :
+            <input type="number" id="price" min="0" step="0.01" name="price" class="ms-3 form-control">
           </label>
         </div>
 
         <div class="mb-3">
           <label for="qtt" class="form-label">
             Quantité désirée :
-            <input type="number" id="qtt" name="qtt" value="1" class="ms-3 form-control">
+            <input type="number" id="qtt" name="qtt" min="1" value="1" class="ms-3 form-control">
           </label>
         </div>
 
