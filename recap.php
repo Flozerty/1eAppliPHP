@@ -3,7 +3,7 @@ session_start();
 ob_start();
 
 $title = "Panier";
-$active = "panier"
+$activePage = "panier";
 ?>
 
 <main class="container d-flex flex-column align-items-center">
@@ -92,4 +92,5 @@ $active = "panier"
 </main>
 
 <?php $content = ob_get_clean();
-require_once "template.php"; ?>
+require_once "template.php"; 
+?>

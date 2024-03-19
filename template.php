@@ -19,12 +19,18 @@
         <ul class="navbar-nav container navbar mt-2 d-flex flex-column gap-1 flex-md-row justify-content-center">
 
           <li id="ajouter" class="nav-item w-auto">
-            <a href="index.php" class="btn btn-primary"> Ajouter produit </a>
+            <a href="index.php" class="btn 
+                <?php echo verifyActivePage('main', $activePage) ?>
+                ">
+              Ajouter produit
+            </a>
           </li>
 
           <li id="panier" class="nav-item w-auto">
 
-            <a href="recap.php" class="btn btn-light text-primary position-relative">
+            <a href="recap.php" class="btn position-relative 
+              <?php echo verifyActivePage('panier', $activePage) ?>
+                 ">
               Panier
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 <?php 
@@ -56,3 +62,13 @@
 </body>
 
 </html>
+
+<?php
+
+function verifyActivePage($page, $active) : string {
+  if ($page === $active) {
+    return "btn-primary";
+  }else{
+    return "btn-light text-primary";
+  } 
+}
