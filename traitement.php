@@ -5,7 +5,7 @@ session_start();
 $message = "";
 $type = "";
 
-if(isset($_POST['submit'])){
+if(isset($_GET['action'])){
 
   switch($_GET['action']) {
     case 'add': {
@@ -36,14 +36,38 @@ if(isset($_POST['submit'])){
         <p>'.$message.'</p>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>';
+
+      header('Location:index.php');
+      break;
+    };
+    
+    case'delete': {
+      unset($_SESSION["products"][$_GET['product']]);
+
+      header('Location:recap.php');
+      break;
     };
 
-    case'delete': {};
-    case'clear': {};
-    case'up-qtt': {};
-    case'down-qtt': {};
+    case'clear': {
+      unset($_SESSION["products"]);
+      header('Location:recap.php');
+      break;
+    };
 
+    case'up-qtt': {
+      $_SESSION["products"][$_GET['product']]['qtt'] +=1;
+      $_SESSION["products"][$_GET['product']]['total'] += $_SESSION["products"][$_GET['product']]['price'];
+
+      header('Location:recap.php');
+      break;
+    };
+    
+    case'down-qtt': {
+      $_SESSION["products"][$_GET['product']]['qtt'] -=1;
+      $_SESSION["products"][$_GET['product']]['total'] -= $_SESSION["products"][$_GET['product']]['price'];
+
+      header('Location:recap.php');
+      break;
+    };
   }
 }
-
-header('Location:index.php');

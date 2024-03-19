@@ -76,7 +76,6 @@ session_start();
         </div>
 
         <input type="submit" name="submit" value="Ajouter le produit" class="btn btn-primary align-self-center">
-
       </form>
 
       <?php  

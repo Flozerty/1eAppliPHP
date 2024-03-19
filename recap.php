@@ -60,7 +60,12 @@ session_start();
           <th>Prix</th>
           <th>Quantité</th>
           <th>Total</th>
-          <th class="text-end"><button type="button" class="btn btn-danger">Supprimer tout</button></th>
+          <th class="text-end">
+          
+            <a href="traitement.php?action=clear">
+              <button type="button" class="btn btn-danger">Supprimer tout</button>
+            </a>
+          </th>
         </tr>
     </thead>
     <tbody>
@@ -77,16 +82,26 @@ session_start();
         </td>
 
         <td class='d-flex w-100'>
-          <button type='button' class='btn btn-secondary me-auto'>-</button>
-          ".$product['qtt'].'
-          <button type="button" class="btn btn-secondary align-self-end ms-auto">+</button>
+          <a href='traitement.php?action=down-qtt&product=".$index."' class='me-auto'>
+            <button type='button' class='btn btn-secondary'>-</button>
+          </a>
+          ".$product['qtt']."
+          <a href='traitement.php?action=up-qtt&product=".$index."' class='ms-auto'>
+            <button type='button' class='btn btn-secondary'>+</button>
+          </a>
         </td>
 
-        <td class="text-end">'.number_format($product['total'], 2, ".", "&nbsp;")."&nbsp;€</td>
+        <td class='text-end'>
+          ".number_format($product['total'], 2, ".", "&nbsp;")."&nbsp;€
+        </td>
 
-        <td class='text-end'><button type='button' class='btn btn-danger'>x</button></td>
-      </tr>
-      ";
+        <td class='text-end'>
+          <a href='traitement.php?action=delete&product=".$index."'>
+            <button type='button' class='btn btn-danger'>x</button>
+          </a> 
+          </td>
+      </tr>";
+      
 /*      number_format(
         variable à modifier,
         nombre de décimales souhaité,
