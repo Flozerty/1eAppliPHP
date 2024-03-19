@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+ob_start();
 
 $id = isset($_GET['product']) ? $_GET['product'] : null;
 $message = "";

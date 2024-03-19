@@ -6,7 +6,6 @@ $title = "Ajout produit";
 $activePage = "main";
 ?>
 
-
 <main class="mt-2 d-flex flex-column gap-5 flex-md-column justify-content-center align-items-center">
   <h1 class="mt-5 text-primary">Ajouter produit</h1>
 
